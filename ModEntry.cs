@@ -51,12 +51,12 @@ namespace AutoFarmScreenshot
         {
             string _screenshot_name = screenshot_format;
             var screenshot_dict = new System.Collections.Generic.Dictionary<string, string> { 
-                { "{PlayerName}", Game1.player.name }, 
+                { "{PlayerName}", Game1.player.Name }, 
                 { "{Season}", SDate.Now().Season.ToString() },
                 { "{Day}", SDate.Now().Day.ToString("00") },
                 { "{Year}", SDate.Now().Year.ToString("00") },
                 { "{TotalDays}", SDate.Now().DaysSinceStart.ToString("0000") },
-                { "{FarmName}", Game1.player.farmName}
+                { "{FarmName}", Game1.player.farmName.Value },
             };
             foreach(System.Collections.Generic.KeyValuePair<string, string> format_item in screenshot_dict)
             {
@@ -76,12 +76,15 @@ namespace AutoFarmScreenshot
             if (isScreenshottedToday || !nowInFarm)
                 return;
 
-            string fullName = takeMapscreenshot.Invoke<string>(scale, screenshot_name, null);
+            string time_screenshot_name = screenshot_name + "_" + e.OldTime.ToString("D4");
+
+            string fullName = takeMapscreenshot.Invoke<string>(scale, time_screenshot_name, null);
             if (fullName != null)
             {
                 // take screenshot
                 addMessage.Invoke("Saved screenshot as '" + fullName + "'.", Color.Green);
                 isScreenshottedToday = true;
+                // counter
             }
             else
             {
@@ -106,9 +109,6 @@ namespace AutoFarmScreenshot
             // ignore if the affected player is not the local one
             if (!e.IsLocalPlayer)
                 return;
-            // ignore if the screenshot had been captured
-            if (isScreenshottedToday)
-                return;
             // set nowInFarm
             if (e.NewLocation.name.Value.Equals("Farm"))
                 nowInFarm = true;
@@ -116,6 +116,10 @@ namespace AutoFarmScreenshot
                 return;
             if (e.OldLocation.name.Value.Equals("Farm"))
                 nowInFarm = false;
+                isScreenshottedToday = false;
+            // ignore if the screenshot had been captured
+            if (isScreenshottedToday)
+                return;
         }
     }
 }
