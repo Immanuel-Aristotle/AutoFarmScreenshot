@@ -1,13 +1,14 @@
-![AutoFarmScreenshot](https://raw.githubusercontent.com/Dwayneten/AutoFarmScreenshot/master/header.jpg)
+![AutoFarmScreenshot](static/header.jpg)
+
 # AutoFarmScreenshot
+
 A Stardew Valley mod that help you automatically takes a screenshot of farm everyday.
 
-### REQUIREMENTS :
+### REQUIREMENTS
 
 [SMAPI - Stardew Modding API 3.8.0+](https://github.com/Pathoschild/SMAPI)
 
-
-### HOW THIS MOD WORKS :
+### HOW THIS MOD WORKS
 
 With Stardew Valley 1.4 update it comes a new map export feature
 
@@ -21,16 +22,15 @@ If nothing wrong, you will see a tooltip at the left-down corner showing you scr
 
 Screenshots will be saved in "%appdata%\StardewValley\Screenshots". You can also open that folder via a button in the bottom of options menu.
 
-
-### WITH THIS MOD YOU CAN :
+### WITH THIS MOD YOU CAN
 
 - Record your farm development progress
 
 - Use these screenshot to generate a GIF to see how your farm has changed.
 
-### CONFIG :
+### CONFIG
 
-Open config.json and change the values you would like to change 
+Open config.json and change the values you would like to change
 
 ``` json
 {
@@ -39,16 +39,17 @@ Open config.json and change the values you would like to change
 }
 ```
 
-* ScaleNumber: the zoom scale for the [0, 1] (default: 0.25 is 25% zoom)
-* ScreenshotFormat: The formatting for the name of the screenshots being taken
-  * {PlayerName} is replaced with the Farmer's name
-  * {Season} is replaced with the name of the current season
-  * {Day} is replaced with the day of the season in 2 digit format (01, 05, 11)
-  * {Year} is replaced with the current year in 2 digit format  (01, 05, 11)
-  * {TotalDays} is replaced with the total number of days that have passed since Spring 1, Year 1 in 4 digit format (0001, 0023)
-  * {FarmName} is replaced by the name of the farm
-  * Anything else is added literally to the screnshot name as is.
-  * I.E {PlayerName}_{Season}_{Day}_{Year} is turned into Bob_spring_03_01 for a character named Bob, on spring day 3, year 1
+- ScaleNumber: parameter range: [0, 1]. The larger this number, the sharper the screenshot would be.
+- ScreenshotFormat: The formatting for the name of the screenshots being taken
+  - {PlayerName} is replaced with the Farmer's name
+  - {Season} is replaced with the name of the current season
+  - {Day} is replaced with the day of the season in 2 digit format (01, 05, 11)
+  - {Year} is replaced with the current year in 2 digit format  (01, 05, 11)
+  - {TotalDays} is replaced with the total number of days that have passed since Spring 1, Year 1 in 4 digit format (0001, 0023)
+  - {FarmName} is replaced by the name of the farm
+  - Anything else is added literally to the screnshot name as is.
+  - I.E {PlayerName}_{Season}_{Day}_{Year} is turned into Bob_spring_03_01 for a character named Bob, on spring day 3, year 1
 
 ### NEXUS PAGE
+
 [AutoFarmScreenshot](https://www.nexusmods.com/stardewvalley/mods/4783/)
